@@ -5,7 +5,7 @@ const UserRouter = require("./routes/routes");
 //const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path = require("path");
+import path from "path";
 import dotenv from "dotenv";
 
 //HIDING VARIABLES AND SENSITIVE INFO IN A DOTENV FILE
@@ -57,14 +57,14 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // removin the # in my react start
-app.use(express.static(__dirname + "/client/public"));
+app.use(express.static(__dirname + "/client/build"));
 app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "client", "public", "index.html"));
+  response.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 // removin the # in my react end
 //listening to the server
 const port = process.env.PORT || 5000;
-console.log(port);
+//console.log(port);
 app.listen(port, () => {
   console.log("port connectio succesfull");
 });
