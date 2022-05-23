@@ -16,13 +16,16 @@ export default function Register() {
   // USING POST METHOD TO SEND DATA TO THE DATABASE START
   const sendData = async () => {
     try {
-      const data = await axios.post("http://127.0.0.1:5000/users/register", {
-        FirstName,
-        LastName,
-        email,
-        PhoneNumber,
-        OTP,
-      });
+      const data = await axios.post(
+        "https://verifyapicalls.herokuapp.com/users/register",
+        {
+          FirstName,
+          LastName,
+          email,
+          PhoneNumber,
+          OTP,
+        }
+      );
       //console.log(data);
       const NameId = data.data._id;
       navigate(`/dashboard/${NameId}`);
