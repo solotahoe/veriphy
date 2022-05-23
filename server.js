@@ -65,6 +65,6 @@ app.get("*", function (request, response) {
 //listening to the server
 const port = process.env.PORT || 5000;
 console.log(port);
-app.listen(5000, () => {
+app.listen(port, () => {
   console.log("port connectio succesfull");
 });
