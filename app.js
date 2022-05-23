@@ -1,4 +1,3 @@
-const dotenv = require("dotenv");
 const express = require("express");
 const { default: mongoose } = require("mongoose");
 const app = express();
@@ -7,14 +6,15 @@ const UserRouter = require("./routes/routes");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
+import dotenv from "dotenv";
 
 //HIDING VARIABLES AND SENSITIVE INFO IN A DOTENV FILE
-dotenv.config();
 
 const db_password = process.env.DB_PASSWORD;
 
 //middlewares
 app.use(bodyParser.json());
+dotenv.config();
 app.use(cors());
 ///routing
 app.get("/", (req, res) => {
@@ -63,7 +63,8 @@ app.get("*", function (request, response) {
 });
 // removin the # in my react end
 //listening to the server
-const port = process.env.PORT || 8080;
-app.listen(5000, () => {
+const port = process.env.PORT || 5000;
+console.log(port);
+app.listen(port, () => {
   console.log("port connection succesfull");
 });
