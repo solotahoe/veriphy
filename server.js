@@ -28,8 +28,11 @@ app.use("/users", UserRouter);
 ///code from attlas itself end
 
 //connect to the database
+const connectionLink2 =
+  "mongodb+srv://solo:solo0702591509@cluster0.k32dc.mongodb.net/?retryWrites=true&w=majority";
+
 mongoose.connect(
-  `mongodb+srv://solo:solo0702591509@cluster0.k32dc.mongodb.net/?retryWrites=true&w=majority`,
+  process.env.MONGODB_URI || connectionLink2,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("connected to the db");
